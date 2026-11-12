@@ -26,10 +26,3 @@ This project builds a Databricks data pipeline for integrating an FMCG child com
 `CSV landing data → Bronze Delta → Silver cleanup/enrichment → Gold tables → parent-company MERGE → SQL reporting view → dashboard`
 
 Run the setup notebooks first, then process dimensions (products before pricing and orders, because those pipelines join to product data). Run the fact full-load notebook for initial history and the incremental notebook for subsequent arrivals. The notebooks use Databricks features including Spark, Delta Lake, Unity Catalog-style catalog/schema naming, widgets, and `dbutils`; paths and table names are currently configured for the project's Databricks environment and should be adjusted for another workspace.
-
-## Resume
-
-**Databricks FMCG Sales Lakehouse | PySpark, SQL, Delta Lake**
-
-- Built a Databricks medallion pipeline with PySpark to ingest and cleanse FMCG customer, product, pricing, and order data, applying deduplication, standardization, validation, and dimension enrichment into Delta tables.
-- Implemented full and incremental fact processing with Delta Lake `MERGE`, monthly sales aggregation, and SQL reporting views that calculate INR sales value for dashboard analysis.
